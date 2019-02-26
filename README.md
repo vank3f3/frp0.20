@@ -1,14 +1,17 @@
 
-frp 具体的使用说明，移步 fatedier/frp。
+frp 具体的使用说明，移步 [fatedier/frp](https://github.com/fatedier/frp)。
 
 # 服务端使用方法
 `docker run --restart always -d --name frps -p 8088:80 -p 8443:443 -p 7000:7000 -p 7500:7500 -v /home/docker/frp:/etc/frp vank3f3/frp:s`
+
 修改服务端配置文件 /home/docker/frp/frps.ini 后，可通过以下命令重新加载
 
 `docker exec frps frps -c /etc/frp/frps.ini --reload`
+
 或者直接重启容器
 
 `docker restart frps`
+
 服务端配置模板
 ```
 [common]
@@ -38,9 +41,11 @@ custom_domains = www.doname.com
 
 # 客户端使用方法
 `docker run --restart always -d --name frpc -v /home/docker/frp:/etc/frp vank3f3/frp:c`
+
 客户端配置文件位于 /home/docker/frp/frpc.ini，修改后需要重启 frpc
 
 `docker restart frpc`
+
 客户端配置模板
 ```
 [common]
